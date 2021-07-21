@@ -2,11 +2,13 @@ package com.prueba.crud.servicesimpl;
 
 import com.prueba.crud.requests.numerosRequest;
 import com.prueba.crud.services.calculadoraService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Lazy
 @Service
 public class calculadoraServiceImpl implements calculadoraService {
     @Override

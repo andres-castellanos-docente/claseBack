@@ -1,8 +1,10 @@
 package com.prueba.crud.controllers;
 
 import com.prueba.crud.requests.numerosRequest;
+import com.prueba.crud.responses.calculadoraResponse;
 import com.prueba.crud.services.calculadoraService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @RestController
 public class operacionesController {
+    @Lazy
     @Autowired
     calculadoraService calcService;
 
@@ -127,6 +130,44 @@ public class operacionesController {
         }
 
     }
+
+    @PostMapping("/operacionesifjson")
+    public calculadoraResponse postOperifjson(@RequestBody numerosRequest datos) {
+        //System.out.println(new Date());
+
+        if (datos.getOperacion() == null) {
+            return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
+            //throw new RuntimeException("Operación imposible de procesar: " + datos.getOperacion());
+        }
+        else if (datos.getOperacion().charAt(0) == '+') {
+            return  new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
+            /* ret.setCodError(1);
+            ret.setResultado(datos.getNumero1() + datos.getNumero2());
+            ret.setMessError("Se hizo ok"); */
+            //return datos.getNumero1() + datos.getNumero2();
+
+        } else if (datos.getOperacion().charAt(0) == '-') {
+            return  new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() - datos.getNumero2());
+            //return datos.getNumero1() - datos.getNumero2();
+
+        } else if (datos.getOperacion().charAt(0) == '*') {
+            return   new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
+            //return datos.getNumero1() * datos.getNumero2();
+
+        } else if (datos.getOperacion().charAt(0) == '/') {
+            //return datos.getNumero1() / datos.getNumero2();
+            return new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
+
+        }
+        else {
+            return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
+            //throw new RuntimeException("Operación no soportada para ser calculada: " + datos.getOperacion());
+        }
+        //return ret;
+
+    }
+
+
 
 
 }
