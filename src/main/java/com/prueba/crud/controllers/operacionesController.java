@@ -123,7 +123,8 @@ public class operacionesController {
 
         //System.out.println(new Date());
         if (datos.getOperacion() == null) {
-            logger.error("INFO - Level Log Message"); //Print a Info Logger Msg
+            logger.error("Usuario inicia operacion " + datos.getNumero1() + datos.getOperacion().charAt(0)+ datos.getNumero2() + "ip :"+ request.getRemoteAddr()); //Print a Info Logger Msg
+
             throw new RuntimeException("Operación imposible de procesar: " + datos.getOperacion());
         }
         else if (datos.getOperacion().charAt(0) == '+') {
@@ -147,36 +148,45 @@ public class operacionesController {
 
     @PostMapping("/operacionesifjson")
     public calculadoraResponse postOperifjson(@RequestBody numerosRequest datos) {
-        //System.out.println(new Date());
+        try {
+            //System.out.println(new Date());
 
-        if (datos.getOperacion() == null) {
-            return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
-            //throw new RuntimeException("Operación imposible de procesar: " + datos.getOperacion());
-        }
-        else if (datos.getOperacion().charAt(0) == '+') {
-            return  new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
+            if (datos.getOperacion() == null) {
+                logger.error("ocurrio un error al ejecutar la operacion " + datos.getNumero1() + datos.getOperacion().charAt(0) + datos.getNumero2() + "ip :" + request.getRemoteAddr()); //Print a Info Logger Msg
+                return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
+                //throw new RuntimeException("Operación imposible de procesar: " + datos.getOperacion());
+            } else if (datos.getOperacion().charAt(0) == '+') {
+                return new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
             /* ret.setCodError(1);
             ret.setResultado(datos.getNumero1() + datos.getNumero2());
             ret.setMessError("Se hizo ok"); */
-            //return datos.getNumero1() + datos.getNumero2();
+                //return datos.getNumero1() + datos.getNumero2();
 
-        } else if (datos.getOperacion().charAt(0) == '-') {
-            return  new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() - datos.getNumero2());
-            //return datos.getNumero1() - datos.getNumero2();
+            } else if (datos.getOperacion().charAt(0) == '-') {
+                return new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() - datos.getNumero2());
+                //return datos.getNumero1() - datos.getNumero2();
 
-        } else if (datos.getOperacion().charAt(0) == '*') {
-            return   new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
-            //return datos.getNumero1() * datos.getNumero2();
+            } else if (datos.getOperacion().charAt(0) == '*') {
+                return new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
+                //return datos.getNumero1() * datos.getNumero2();
 
-        } else if (datos.getOperacion().charAt(0) == '/') {
-            //return datos.getNumero1() / datos.getNumero2();
-            return new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
+            } else if (datos.getOperacion().charAt(0) == '/') {
+                //return datos.getNumero1() / datos.getNumero2();
+                return new calculadoraResponse(1, "Se hizo ok", datos.getNumero1() + datos.getNumero2());
 
+            } else {
+                logger.warn("no se pudo realizar la operación " + datos.getNumero1() + datos.getOperacion().charAt(0) + datos.getNumero2() + "ip :" + request.getRemoteAddr()); //Print a Info Logger Msg
+
+                return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
+                //throw new RuntimeException("Operación no soportada para ser calculada: " + datos.getOperacion());
+            }
         }
-        else {
-            return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
-            //throw new RuntimeException("Operación no soportada para ser calculada: " + datos.getOperacion());
-        }
+    catch (Exception e) {
+        logger.error("ocurrio un error al ejecutar la operacion " + e.getMessage() + "ip :" + request.getRemoteAddr()); //Print a Info Logger Msg
+        return new calculadoraResponse(-1, "Operación no soportada para ser calculada: " + datos.getOperacion(), new Double(0));
+
+    }
+
         //return ret;
 
     }

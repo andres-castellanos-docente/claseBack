@@ -1,6 +1,7 @@
 package com.prueba.crud.servicesimpl;
 
 import com.prueba.crud.CrudApplication;
+import com.prueba.crud.exception.CustomNotFoundException;
 import com.prueba.crud.requests.numerosRequest;
 import com.prueba.crud.services.calculadoraService;
 import org.slf4j.Logger;
@@ -23,7 +24,8 @@ public class calculadoraServiceImpl implements calculadoraService {
         for (numerosRequest dat : datos)
         {
             if (dat.getOperacion() == null) {
-                throw new RuntimeException("Operación imposible de procesar: " + dat.getOperacion());
+                throw new CustomNotFoundException("Operación imposible de procesar: "+ dat.getOperacion());
+                //throw new RuntimeException("Operación imposible de procesar: " + dat.getOperacion());
             }
             switch (dat.getOperacion().charAt(0)) {
                 case '+':
@@ -43,7 +45,8 @@ public class calculadoraServiceImpl implements calculadoraService {
                     break;
                 //return dat.getNumero1() / dat.getNumero2();
                 default:
-                    throw new RuntimeException("Operación no soportada para ser calculada: " + dat.getOperacion());
+                    throw new CustomNotFoundException("Operación no soportada para ser calculada: "+ dat.getOperacion());
+                    //throw new RuntimeException("Operación no soportada para ser calculada: " + dat.getOperacion());
 
             }
 
