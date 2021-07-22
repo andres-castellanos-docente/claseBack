@@ -346,3 +346,32 @@ java.lang.RuntimeException: Operación no soportada para ser calculada: k
 2021-07-21 21:57:20.081  INFO 56469 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2021-07-21 21:57:20.227  INFO 56469 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 146 ms
 2021-07-21 21:57:20.353  WARN 56469 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.prueba.crud.exception.CustomNotFoundException: Operación imposible de procesar: k]
+2021-07-21 22:30:26.912  INFO 57819 --- [restartedMain] com.prueba.crud.CrudApplication          : Starting CrudApplication using Java 1.8.0_281 on andrespc with PID 57819 (/Users/andresdocente/claseBack/target/classes started by andresdocente in /Users/andresdocente/claseBack)
+2021-07-21 22:30:26.915  INFO 57819 --- [restartedMain] com.prueba.crud.CrudApplication          : No active profile set, falling back to default profiles: default
+2021-07-21 22:30:26.978  INFO 57819 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-21 22:30:26.979  INFO 57819 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-21 22:30:27.776  INFO 57819 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-07-21 22:30:27.781  INFO 57819 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-07-21 22:30:27.781  INFO 57819 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-21 22:30:27.817  INFO 57819 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-07-21 22:30:27.818  INFO 57819 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 838 ms
+2021-07-21 22:30:27.903  INFO 57819 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-21 22:30:27.909  INFO 57819 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-07-21 22:30:27.942  INFO 57819 --- [restartedMain] com.prueba.crud.CrudApplication          : Started CrudApplication in 1.935 seconds (JVM running for 3.54)
+2021-07-21 22:34:27.667  INFO 57928 --- [restartedMain] com.prueba.crud.CrudApplication          : Starting CrudApplication using Java 1.8.0_281 on andrespc with PID 57928 (/Users/andresdocente/claseBack/target/classes started by andresdocente in /Users/andresdocente/claseBack)
+2021-07-21 22:34:27.670  INFO 57928 --- [restartedMain] com.prueba.crud.CrudApplication          : No active profile set, falling back to default profiles: default
+2021-07-21 22:34:27.719  INFO 57928 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-21 22:34:27.720  INFO 57928 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-21 22:34:28.562  INFO 57928 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-07-21 22:34:28.567  INFO 57928 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-07-21 22:34:28.567  INFO 57928 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-21 22:34:28.611  INFO 57928 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-07-21 22:34:28.612  INFO 57928 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 892 ms
+2021-07-21 22:34:28.700  INFO 57928 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-07-21 22:34:28.706  INFO 57928 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-07-21 22:34:28.741  INFO 57928 --- [restartedMain] com.prueba.crud.CrudApplication          : Started CrudApplication in 1.444 seconds (JVM running for 1.986)
+2021-07-21 22:34:49.533  INFO 57928 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-21 22:34:49.534  INFO 57928 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-07-21 22:34:49.657  INFO 57928 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 123 ms
+2021-07-21 22:34:49.725  INFO 57928 --- [http-nio-8080-exec-2] c.p.crud.servicesimpl.emailServiceImpl   : EmailBody: EmailBody [email=andrescastellanosdocente@gmail.com, content=email de prueba sdfsdfsd sdfsdfsdf, subject=asunto mail prueba]
+2021-07-21 22:34:52.253  INFO 57928 --- [http-nio-8080-exec-2] c.p.crud.servicesimpl.emailServiceImpl   : Mail enviado!
