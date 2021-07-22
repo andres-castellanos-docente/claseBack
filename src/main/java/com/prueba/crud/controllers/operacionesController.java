@@ -1,18 +1,28 @@
 package com.prueba.crud.controllers;
 
+import com.prueba.crud.CrudApplication;
 import com.prueba.crud.requests.numerosRequest;
 import com.prueba.crud.responses.calculadoraResponse;
 import com.prueba.crud.services.calculadoraService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @RestController
 public class operacionesController {
+
+    @Autowired
+    private HttpServletRequest request;
+
+    private static final Logger logger = LoggerFactory.getLogger(operacionesController.class);
+
     @Lazy
     @Autowired
     calculadoraService calcService;
@@ -108,8 +118,12 @@ public class operacionesController {
 
     @PostMapping("/operacionesif")
     public Double postOperif(@RequestBody numerosRequest datos) {
+
+        logger.info("Usuario inicia operacion " + datos.getNumero1() + datos.getOperacion().charAt(0)+ datos.getNumero2() + "ip :"+ request.getRemoteAddr()); //Print a Info Logger Msg
+
         //System.out.println(new Date());
         if (datos.getOperacion() == null) {
+            logger.error("INFO - Level Log Message"); //Print a Info Logger Msg
             throw new RuntimeException("Operación imposible de procesar: " + datos.getOperacion());
         }
         else if (datos.getOperacion().charAt(0) == '+') {
