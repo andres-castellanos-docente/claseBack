@@ -11,10 +11,14 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
 
 @Service
 public class emailServiceImpl  implements emailService {
-
+	
+    @Autowired
+    private HttpServletRequest request;
+    
     @Autowired
     private JavaMailSender sender;
 
@@ -36,7 +40,7 @@ public class emailServiceImpl  implements emailService {
             helper.setSubject(subject);
             sender.send(message);
             send = true;
-            LOGGER.info("Mail enviado!");
+            LOGGER.info("Mail enviado!", email, subject, textMessage, request.getRemoteAddr());
         } catch (MessagingException e) {
             LOGGER.error("Hubo un error al enviar el mail: {}", e);
         }
